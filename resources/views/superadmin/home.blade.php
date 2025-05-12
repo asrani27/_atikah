@@ -3,8 +3,8 @@
 @section('content')
 <div class="row">
     <div class="col-12 text-center">
-        <img src="/logo/tw.png" width="10%"><br />
-        <h2>Sistem Informasi Pengelolaan Inventarisasi Barang</h2>
+        <img src="/logo/min.png" width="10%"><br /><br />
+        <h2>Aplikasi Sistem Monitoring Prestasi <br />Madrasah Aliyah Negeri 3 </br> Hulu Sungai Tengah </h2>
     </div>
 
 

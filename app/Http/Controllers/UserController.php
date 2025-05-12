@@ -2,92 +2,74 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Pengaduan;
 use App\Models\Pengajuan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 
 class UserController extends Controller
 {
-    public function dashboard()
+    public function index()
     {
-        return view('user.dashboard');
-    }
-    public function pengaduan()
-    {
-        $data = Pengaduan::where('user_id', Auth::user()->id)->paginate(10);
-        return view('user.pengaduan.index', compact('data'));
-    }
-    public function add_pengaduan()
-    {
-        return view('user.pengaduan.create');
-    }
-    public function store_pengaduan(Request $req)
-    {
-        $param = $req->all();
-        $param['user_id'] = Auth::user()->id;
-        Pengaduan::create($param);
-        Session::flash('success', 'Berhasil Disimpan');
-        return redirect('/user/pengaduan');
-    }
-    public function edit_pengaduan($id)
-    {
-        $data = Pengaduan::find($id);
-        return view('user.pengaduan.edit', compact('data'));
+        $data = User::all();
+        return view('superadmin.user.index', compact('data'));
     }
 
-    public function update_pengaduan(Request $req, $id)
+    public function add()
     {
-        $param = $req->all();
-        $param['user_id'] = Auth::user()->id;
-        Pengaduan::find($id)->update($param);
-        Session::flash('success', 'Berhasil Diupdate');
-        return redirect('/user/pengaduan');
-    }
-    public function delete_pengaduan($id)
-    {
-
-        Pengaduan::find($id)->delete();
-        Session::flash('success', 'Berhasil Dihapus');
-        return redirect('/user/pengaduan');
+        return view('superadmin.user.create');
     }
 
-    public function ajukan()
+    public function store(Request $req)
     {
-        $data = Pengajuan::where('user_id', Auth::user()->id)->paginate(10);
-        return view('user.ajukan.index', compact('data'));
-    }
-    public function add_ajukan()
-    {
-        return view('user.ajukan.create');
-    }
-    public function store_ajukan(Request $req)
-    {
-        $param = $req->all();
-        $param['user_id'] = Auth::user()->id;
-        Pengajuan::create($param);
-        Session::flash('success', 'Berhasil Disimpan');
-        return redirect('/user/ajukan');
-    }
-    public function edit_ajukan($id)
-    {
-        $data = Pengajuan::find($id);
-        return view('user.ajukan.edit', compact('data'));
+        $check = User::where('username', $req->username)->first();
+        if ($check != null) {
+            Session::flash('error', 'Username sudah digunakan, silahkan gunakan username lain');
+            return back();
+        } else {
+            $s = new User;
+            $s->name = $req->name;
+            $s->username = $req->username;
+            $s->password = Hash::make($req->password);
+            $s->roles = 'superadmin';
+            $s->save();
+            Session::flash('success', 'Berhasil Simpan');
+            return redirect('/superadmin/user');
+        }
     }
 
-    public function update_ajukan(Request $req, $id)
+    public function edit($id)
     {
-        $param = $req->all();
-        $param['user_id'] = Auth::user()->id;
-        Pengajuan::find($id)->update($param);
-        Session::flash('success', 'Berhasil Diupdate');
-        return redirect('/user/ajukan');
+        $data = User::find($id);
+        return view('superadmin.user.edit', compact('data'));
     }
-    public function delete_ajukan($id)
+
+    public function update(Request $req, $id)
     {
-        Pengajuan::find($id)->delete();
-        Session::flash('success', 'Berhasil Dihapus');
-        return redirect('/user/ajukan');
+        if ($req->password == null) {
+            $s = User::find($id);
+            $s->name = $req->name;
+            $s->username = $req->username;
+            $s->save();
+            Session::flash('success', 'Berhasil di update');
+        } else {
+            $s = User::find($id);
+            $s->name = $req->name;
+            $s->username = $req->username;
+            $s->password = Hash::make($req->password);
+            $s->save();
+            Session::flash('success', 'Berhasil diupdate');
+        }
+        return redirect('/superadmin/user');
+    }
+
+    public function delete($id)
+    {
+        $delete = User::find($id)->delete();
+        Session::flash('success', 'Berhasil dihapus');
+        return redirect('/superadmin/user');
     }
 }

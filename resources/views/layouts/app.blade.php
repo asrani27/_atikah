@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{ $title ?? 'Inventaris' }}</title>
+    <title>{{ $title ?? 'Monitoring' }}</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
@@ -19,7 +19,7 @@
     <script src="/notif/dist/js/iziToast.min.js" type="text/javascript"></script>
     <style>
         .active2 {
-            background-color: rgb(190, 222, 251);
+            background-color: rgb(190, 251, 199);
 
         }
     </style>
@@ -29,7 +29,8 @@
     <div class="wrapper">
 
         <!-- Navbar -->
-        <nav class="main-header navbar navbar-expand navbar-light navbar-info" style="box-shadow: 0px 1px 10px silver;">
+        <nav class="main-header navbar navbar-expand navbar-light navbar-success"
+            style="box-shadow: 0px 1px 10px silver;">
             <!-- Left navbar links -->
             <ul class="navbar-nav">
                 <li class="nav-item">
@@ -48,10 +49,10 @@
         <!-- Main Sidebar Container -->
 
 
-        <aside class="main-sidebar sidebar-light-primary elevation-4">
+        <aside class="main-sidebar sidebar-light-success elevation-4">
             <!-- Brand Logo -->
-            <a href="#" class="brand-link text-center bg-gradient-info">
-                <img src="/logo/tw.png" alt="AdminLTE Logo" style="opacity: .8" width="25%"><br />
+            <a href="#" class="brand-link text-center bg-gradient-success">
+                <img src="/logo/min.png" alt="AdminLTE Logo" style="opacity: .8" width="25%"><br />
                 <span class="brand-text font-weight-light">
 
                     {{Auth::user()->name}}
@@ -70,67 +71,80 @@
 
 
                         <li class="nav-item">
-                            <a href="/superadmin/barang"
-                                class="nav-link {{request()->is('superadmin/barang*') ? 'active2':''}}">
-                                <i class="nav-icon fas fa-file"></i>
+                            <a href="/superadmin/user"
+                                class="nav-link {{request()->is('superadmin/user*') ? 'active2':''}}">
+                                <i class="nav-icon fas fa-circle"></i>
                                 <p>
-                                    DATA BARANG
+                                    User
                                 </p>
                             </a>
                         </li>
 
                         <li class="nav-item">
-                            <a href="/superadmin/ruangan"
-                                class="nav-link {{request()->is('superadmin/ruangan*') ? 'active2':''}}">
-                                <i class="nav-icon fas fa-file"></i>
+                            <a href="/superadmin/profil"
+                                class="nav-link {{request()->is('superadmin/profil*') ? 'active2':''}}">
+                                <i class="nav-icon fas fa-circle"></i>
                                 <p>
-                                    DATA RUANGAN
+                                    Profil
                                 </p>
                             </a>
                         </li>
 
                         <li class="nav-item">
-                            <a href="/superadmin/pegawai"
-                                class="nav-link {{request()->is('superadmin/pegawai*') ? 'active2':''}}">
-                                <i class="nav-icon fas fa-file"></i>
+                            <a href="/superadmin/kelas"
+                                class="nav-link {{request()->is('superadmin/kelas*') ? 'active2':''}}">
+                                <i class="nav-icon fas fa-circle"></i>
                                 <p>
-                                    DATA PEGAWAI
+                                    kelas
                                 </p>
                             </a>
                         </li>
+
                         <li class="nav-item">
-                            <a href="/superadmin/inventaris"
-                                class="nav-link {{request()->is('superadmin/inventaris*') ? 'active2':''}}">
-                                <i class="nav-icon fas fa-file"></i>
+                            <a href="/superadmin/siswa"
+                                class="nav-link {{request()->is('superadmin/siswa*') ? 'active2':''}}">
+                                <i class="nav-icon fas fa-circle"></i>
                                 <p>
-                                    DATA INVENTARIS
+                                    siswa
                                 </p>
                             </a>
                         </li>
+
                         <li class="nav-item">
-                            <a href="/superadmin/mutasi"
-                                class="nav-link {{request()->is('superadmin/mutasi*') ? 'active2':''}}">
-                                <i class="nav-icon fas fa-file"></i>
+                            <a href="/superadmin/organisasi"
+                                class="nav-link {{request()->is('superadmin/organisasi*') ? 'active2':''}}">
+                                <i class="nav-icon fas fa-circle"></i>
                                 <p>
-                                    DATA MUTASI
+                                    organisasi
                                 </p>
                             </a>
                         </li>
+
                         <li class="nav-item">
-                            <a href="/superadmin/pemeliharaan"
-                                class="nav-link {{request()->is('superadmin/pemeliharaan*') ? 'active2':''}}">
-                                <i class="nav-icon fas fa-file"></i>
+                            <a href="/superadmin/rencana"
+                                class="nav-link {{request()->is('superadmin/rencana*') ? 'active2':''}}">
+                                <i class="nav-icon fas fa-circle"></i>
                                 <p>
-                                    DATA PEMELIHARAAN
+                                    Rencana Kegiatan
+                                </p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="/superadmin/prestasi"
+                                class="nav-link {{request()->is('superadmin/prestasi*') ? 'active2':''}}">
+                                <i class="nav-icon fas fa-circle"></i>
+                                <p>
+                                    Prestasi
                                 </p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="/superadmin/laporan"
                                 class="nav-link {{request()->is('superadmin/laporan*') ? 'active2':''}}">
-                                <i class="nav-icon fas fa-file"></i>
+                                <i class="nav-icon fas fa-circle"></i>
                                 <p>
-                                    DATA LAPORAN
+                                    Laporan
                                 </p>
                             </a>
                         </li>

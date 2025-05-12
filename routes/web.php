@@ -42,30 +42,19 @@ Route::post('/login', [LoginController::class, 'login']);
 // Route::get('/daftar', [DaftarController::class, 'index']);
 // Route::post('/daftar', [DaftarController::class, 'store']);
 
-Route::middleware(['auth', 'user'])->group(function () {
-    Route::get('/user/dashboard', [UserController::class, 'dashboard']);
-
-    Route::get('/user/ajukan', [UserController::class, 'ajukan']);
-    Route::get('/user/ajukan/add', [UserController::class, 'add_ajukan']);
-    Route::post('/user/ajukan/add', [UserController::class, 'store_ajukan']);
-    Route::get('/user/ajukan/edit/{id}', [UserController::class, 'edit_ajukan']);
-    Route::post('/user/ajukan/edit/{id}', [UserController::class, 'update_ajukan']);
-    Route::get('/user/ajukan/delete/{id}', [UserController::class, 'delete_ajukan']);
-
-    Route::get('/user/pengaduan', [UserController::class, 'pengaduan']);
-    Route::get('/user/pengaduan/add', [UserController::class, 'add_pengaduan']);
-    Route::post('/user/pengaduan/add', [UserController::class, 'store_pengaduan']);
-    Route::get('/user/pengaduan/edit/{id}', [UserController::class, 'edit_pengaduan']);
-    Route::post('/user/pengaduan/edit/{id}', [UserController::class, 'update_pengaduan']);
-    Route::get('/user/pengaduan/delete/{id}', [UserController::class, 'delete_pengaduan']);
-});
-
 Route::middleware(['auth', 'superadmin'])->group(function () {
     Route::get('/superadmin', [HomeController::class, 'superadmin']);
     Route::get('/superadmin/pengaduan', [PengaduanController::class, 'index']);
     Route::get('/superadmin/laporan', [LaporanController::class, 'index']);
 
     Route::get('/superadmin/laporan/bulan', [LaporanController::class, 'bulan']);
+
+    Route::get('/superadmin/user', [UserController::class, 'index']);
+    Route::get('/superadmin/user/add', [UserController::class, 'add']);
+    Route::get('/superadmin/user/edit/{id}', [UserController::class, 'edit']);
+    Route::get('/superadmin/user/delete/{id}', [UserController::class, 'delete']);
+    Route::post('/superadmin/user/add', [UserController::class, 'store']);
+    Route::post('/superadmin/user/edit/{id}', [UserController::class, 'update']);
 
     Route::get('/superadmin/barang', [BarangController::class, 'index']);
     Route::get('/superadmin/barang/add', [BarangController::class, 'add']);

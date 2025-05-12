@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>INVENTARIS BARANG</title>
+    <title>MAN 3 HST</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
@@ -21,14 +21,15 @@
 </head>
 
 <body class="hold-transition login-page"
-    style="background: rgb(60, 173, 188); background: linear-gradient(48deg, rgb(60, 154, 188) 0%, rgb(187, 232, 249) 100%);">
+    style="background: rgb(60, 188, 77); background: linear-gradient(48deg, rgb(60, 188, 77) 0%, rgb(192, 249, 187) 100%);">
     <div class="login-box">
         <!-- /.login-logo -->
-        <div class="card card-outline card-info">
-            <div class="card-header text-center">
-                <img src="/logo/tw.png" width="30%"><br />
-                <a href="/" class="h4"><b>Sistem Informasi Pengelolaan Inventarisasi Barang</b></a>
-            </div>
+
+        <div class="card-header text-center">
+            <img src="/logo/min.png" width="30%"><br />
+            <a href="/" class="h4"><b>Sistem Monitoring Prestasi <br /> MAN 3 HST</b></a>
+        </div>
+        <div class="card card-outline card-success">
             <div class="card-body">
                 <p class="login-box-msg">Masukan username dan password</p>
 
@@ -55,7 +56,7 @@
                     <div class="row">
                         <!-- /.col -->
                         <div class="col-12">
-                            <button type="submit" class="btn bg-gradient-info btn-block">Log In</button>
+                            <button type="submit" class="btn bg-gradient-success btn-block">Masuk</button>
                         </div>
                         <!-- /.col -->
                     </div>
