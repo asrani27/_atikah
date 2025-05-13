@@ -13,6 +13,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\KelasController;
 use App\Http\Controllers\KlienController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\BarangController;
 use App\Http\Controllers\DaftarController;
 use App\Http\Controllers\MutasiController;
@@ -68,12 +69,12 @@ Route::middleware(['auth', 'superadmin'])->group(function () {
     Route::post('/superadmin/kelas/edit/{id}', [KelasController::class, 'update']);
     Route::get('/superadmin/kelas/delete/{id}', [KelasController::class, 'delete']);
 
-    Route::get('/superadmin/pegawai', [PegawaiController::class, 'index']);
-    Route::get('/superadmin/pegawai/add', [PegawaiController::class, 'add']);
-    Route::post('/superadmin/pegawai/add', [PegawaiController::class, 'store']);
-    Route::get('/superadmin/pegawai/edit/{id}', [PegawaiController::class, 'edit']);
-    Route::post('/superadmin/pegawai/edit/{id}', [PegawaiController::class, 'update']);
-    Route::get('/superadmin/pegawai/delete/{id}', [PegawaiController::class, 'delete']);
+    Route::get('/superadmin/siswa', [SiswaController::class, 'index']);
+    Route::get('/superadmin/siswa/add', [SiswaController::class, 'add']);
+    Route::post('/superadmin/siswa/add', [SiswaController::class, 'store']);
+    Route::get('/superadmin/siswa/edit/{id}', [SiswaController::class, 'edit']);
+    Route::post('/superadmin/siswa/edit/{id}', [SiswaController::class, 'update']);
+    Route::get('/superadmin/siswa/delete/{id}', [SiswaController::class, 'delete']);
 
     Route::get('/superadmin/inventaris', [InventarisController::class, 'index']);
     Route::get('/superadmin/inventaris/add', [InventarisController::class, 'add']);

@@ -68,7 +68,14 @@
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                         data-accordion="false">
 
-
+                        <li class="nav-item">
+                            <a href="/superadmin" class="nav-link {{request()->is('superadmin') ? 'active2':''}}">
+                                <i class="nav-icon fas fa-home"></i>
+                                <p>
+                                    Beranda
+                                </p>
+                            </a>
+                        </li>
 
                         <li class="nav-item">
                             <a href="/superadmin/user"
