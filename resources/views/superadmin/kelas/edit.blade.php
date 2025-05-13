@@ -8,23 +8,23 @@
                 <h3 class="card-title">Edit Data</h3>
 
             </div>
-            <form method="POST" action="/superadmin/ruangan/edit/{{$data->id}}">
+            <form method="POST" action="/superadmin/kelas/edit/{{$data->id}}">
                 @csrf
                 <div class="card-body">
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Nama ruangan</label>
+                        <label for="exampleInputEmail1">Nama kelas</label>
                         <input type="text" name="nama" class="form-control" value="{{$data->nama}}" required>
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Luas ruangan</label>
-                        <input type="text" name="luas" class="form-control" value="{{$data->luas}}" required>
+                        <label for="exampleInputEmail1">Wali kelas</label>
+                        <input type="text" name="walikelas" class="form-control" value="{{$data->walikelas}}" required>
                     </div>
                 </div>
                 <!-- /.card-body -->
 
                 <div class="card-footer">
                     <button type="submit" class="btn btn-primary">Submit</button>
-                    <a href="/superadmin/ruangan" class="btn btn-danger">Kembali</a>
+                    <a href="/superadmin/kelas" class="btn btn-danger">Kembali</a>
                 </div>
             </form>
             <!-- /.card-body -->

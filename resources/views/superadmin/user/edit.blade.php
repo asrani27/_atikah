@@ -8,40 +8,30 @@
                 <h3 class="card-title">Edit Data</h3>
 
             </div>
-            <form method="POST" action="/superadmin/barang/edit/{{$data->id}}">
+            <form method="POST" action="/superadmin/user/edit/{{$data->id}}">
                 @csrf
                 <div class="card-body">
+
+
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Kode Barang</label>
-                        <input type="text" name="kode" class="form-control" value="{{$data->kode}}" required>
+                        <label for="exampleInputEmail1">Nama Lengkap</label>
+                        <input type="text" name="name" value="{{$data->name}}" class="form-control" required>
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Nama Barang</label>
-                        <input type="text" name="nama" class="form-control" value="{{$data->nama}}" required>
+                        <label for="exampleInputEmail1">username</label>
+                        <input type="text" name="username" value="{{$data->username}}" class="form-control" readonly>
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Jenis</label>
-                        <input type="text" name="jenis" class="form-control" value="{{$data->jenis}}" required>
+                        <label for="exampleInputEmail1">password (kosongkan jika tidak di ganti)</label>
+                        <input type="text" name="password" class="form-control">
                     </div>
-                    <div class="form-group">
-                        <label for="exampleInputEmail1">Satuan</label>
-                        <input type="text" name="satuan" class="form-control" value="{{$data->satuan}}" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleInputEmail1">Fungsi</label>
-                        <input type="text" name="fungsi" class="form-control" value="{{$data->fungsi}}" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleInputEmail1">Keterangan</label>
-                        <input type="text" name="keterangan" class="form-control" value="{{$data->keterangan}}"
-                            required>
-                    </div>
+
                 </div>
                 <!-- /.card-body -->
 
                 <div class="card-footer">
                     <button type="submit" class="btn btn-primary">Submit</button>
-                    <a href="/superadmin/barang" class="btn btn-danger">Kembali</a>
+                    <a href="/superadmin/user" class="btn btn-danger">Kembali</a>
                 </div>
             </form>
             <!-- /.card-body -->

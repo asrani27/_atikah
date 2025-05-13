@@ -10,12 +10,14 @@ use App\Http\Controllers\SkpdController;
 use App\Http\Controllers\TkskController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\KelasController;
 use App\Http\Controllers\KlienController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\BarangController;
 use App\Http\Controllers\DaftarController;
 use App\Http\Controllers\MutasiController;
 use App\Http\Controllers\PanganController;
+use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\RevisiController;
 use App\Http\Controllers\DeviasiController;
 use App\Http\Controllers\DokumenController;
@@ -56,19 +58,15 @@ Route::middleware(['auth', 'superadmin'])->group(function () {
     Route::post('/superadmin/user/add', [UserController::class, 'store']);
     Route::post('/superadmin/user/edit/{id}', [UserController::class, 'update']);
 
-    Route::get('/superadmin/barang', [BarangController::class, 'index']);
-    Route::get('/superadmin/barang/add', [BarangController::class, 'add']);
-    Route::post('/superadmin/barang/add', [BarangController::class, 'store']);
-    Route::get('/superadmin/barang/edit/{id}', [BarangController::class, 'edit']);
-    Route::post('/superadmin/barang/edit/{id}', [BarangController::class, 'update']);
-    Route::get('/superadmin/barang/delete/{id}', [BarangController::class, 'delete']);
+    Route::get('/superadmin/profil', [ProfilController::class, 'index']);
+    Route::post('/superadmin/profil', [ProfilController::class, 'update']);
 
-    Route::get('/superadmin/ruangan', [RuanganController::class, 'index']);
-    Route::get('/superadmin/ruangan/add', [RuanganController::class, 'add']);
-    Route::post('/superadmin/ruangan/add', [RuanganController::class, 'store']);
-    Route::get('/superadmin/ruangan/edit/{id}', [RuanganController::class, 'edit']);
-    Route::post('/superadmin/ruangan/edit/{id}', [RuanganController::class, 'update']);
-    Route::get('/superadmin/ruangan/delete/{id}', [RuanganController::class, 'delete']);
+    Route::get('/superadmin/kelas', [KelasController::class, 'index']);
+    Route::get('/superadmin/kelas/add', [KelasController::class, 'add']);
+    Route::post('/superadmin/kelas/add', [KelasController::class, 'store']);
+    Route::get('/superadmin/kelas/edit/{id}', [KelasController::class, 'edit']);
+    Route::post('/superadmin/kelas/edit/{id}', [KelasController::class, 'update']);
+    Route::get('/superadmin/kelas/delete/{id}', [KelasController::class, 'delete']);
 
     Route::get('/superadmin/pegawai', [PegawaiController::class, 'index']);
     Route::get('/superadmin/pegawai/add', [PegawaiController::class, 'add']);
