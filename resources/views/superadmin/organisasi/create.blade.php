@@ -8,28 +8,16 @@
                 <h3 class="card-title">Tambah Data</h3>
 
             </div>
-            <form method="POST" action="/superadmin/barang/add">
+            <form method="POST" action="/superadmin/organisasi/add">
                 @csrf
                 <div class="card-body">
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Kode Barang</label>
-                        <input type="text" name="kode" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleInputEmail1">Nama Barang</label>
+                        <label for="exampleInputEmail1">Nama organisasi</label>
                         <input type="text" name="nama" class="form-control" required>
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Jenis</label>
-                        <input type="text" name="jenis" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleInputEmail1">Satuan</label>
-                        <input type="text" name="satuan" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleInputEmail1">Fungsi</label>
-                        <input type="text" name="fungsi" class="form-control" required>
+                        <label for="exampleInputEmail1">Guru pembimbing</label>
+                        <input type="text" name="guru" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label for="exampleInputEmail1">Keterangan</label>
@@ -40,7 +28,7 @@
 
                 <div class="card-footer">
                     <button type="submit" class="btn btn-primary">Submit</button>
-                    <a href="/superadmin/barang" class="btn btn-danger">Kembali</a>
+                    <a href="/superadmin/organisasi" class="btn btn-danger">Kembali</a>
                 </div>
             </form>
             <!-- /.card-body -->

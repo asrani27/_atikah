@@ -13,31 +13,29 @@
     <table width="100%">
         <tr>
             <td width="15%">
-
+                <img src="data:image/jpeg;base64,{{ base64_encode(file_get_contents(public_path('logo/min.png'))) }}"
+                    width="100px">
             </td>
             <td style="text-align: center;" width="60%">
-                <img src="data:image/jpeg;base64,{{ base64_encode(file_get_contents(public_path('logo/tw.png'))) }}"
-                    width="70px"><br />
-                <font size="24px"><b>SISTEM INFOMASI INVENTARISASI BARANG <br /> DI UPTD SMP NEGERI 3 PANYIPATAN
-                    </b></font><br />
-                JL Raya Batakan, Desa Kandangan Baru Kec. Panyipatan Desa Tanah Laut
+
+                <font size="24px"><b>MADRASAH ALIYAH NEGERI 3 (MAN) HULU SUNGAI TENGAH<br />
+                    </b></font>
+                JL Gerilya Hasan Baseri Rt 6 Rw 2, Kel Birayang Kec. Batang Alai Selatan Kab Hulu Sungai tengah
+                Kalimantan Selatan, 71831
             </td>
             <td width="15%">
             </td>
         </tr>
     </table>
     <hr>
-    <h3 style="text-align: center">LAPORAN DATA BARANG
+    <h3 style="text-align: center">LAPORAN DATA PRESTASI
     </h3>
     <br />
     <table width="100%" border="1" cellpadding="5" cellspacing="0">
         <tr>
             <th>No</th>
-            <th>Kode Barang</th>
-            <th>Nama Barang</th>
-            <th>Jenis</th>
-            <th>Satuan</th>
-            <th>Fungsi</th>
+            <th>Nama Kegiatan</th>
+            <th>Prestasi Diperoleh</th>
             <th>Keterangan</th>
         </tr>
         @php
@@ -47,11 +45,8 @@
         @foreach ($data as $key => $item)
         <tr>
             <td>{{$key + 1}}</td>
-            <td>{{$item->kode}}</td>
-            <td>{{$item->nama}}</td>
-            <td>{{$item->jenis}}</td>
-            <td>{{$item->satuan}}</td>
-            <td>{{$item->fungsi}}</td>
+            <td>{{$item->rencana == null ? '' : $item->rencana->nama}}</td>
+            <td>{{$item->prestasi}}</td>
             <td>{{$item->keterangan}}</td>
         </tr>
         @endforeach
@@ -61,8 +56,8 @@
         <tr>
             <td width="60%"></td>
             <td></td>
-            <td><br />Pelaihari, {{\Carbon\Carbon::now()->format('d M Y')}}<br />
-                Kepala Sekolah<br /><br /><br /><br />
+            <td><br />Barabai, {{\Carbon\Carbon::now()->translatedFormat('d F Y')}}<br />
+                Kepala Sekolah MAN 3 HST<br /><br /><br /><br />
 
                 <u>-</u><br />
                 NIP.xxxxxxxxx

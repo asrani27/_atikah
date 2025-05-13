@@ -13,31 +13,31 @@
     <table width="100%">
         <tr>
             <td width="15%">
-
+                <img src="data:image/jpeg;base64,{{ base64_encode(file_get_contents(public_path('logo/min.png'))) }}"
+                    width="100px">
             </td>
             <td style="text-align: center;" width="60%">
-                <img src="data:image/jpeg;base64,{{ base64_encode(file_get_contents(public_path('logo/tw.png'))) }}"
-                    width="70px"><br />
-                <font size="24px"><b>SISTEM INFOMASI INVENTARISASI BARANG <br /> DI UPTD SMP NEGERI 3 PANYIPATAN
-                    </b></font><br />
-                JL Raya Batakan, Desa Kandangan Baru Kec. Panyipatan Desa Tanah Laut
+
+                <font size="24px"><b>MADRASAH ALIYAH NEGERI 3 (MAN) HULU SUNGAI TENGAH<br />
+                    </b></font>
+                JL Gerilya Hasan Baseri Rt 6 Rw 2, Kel Birayang Kec. Batang Alai Selatan Kab Hulu Sungai tengah
+                Kalimantan Selatan, 71831
             </td>
             <td width="15%">
             </td>
         </tr>
     </table>
     <hr>
-    <h3 style="text-align: center">LAPORAN DATA PEGAWAI
+    <h3 style="text-align: center">LAPORAN DATA MONITORING
     </h3>
     <br />
     <table width="100%" border="1" cellpadding="5" cellspacing="0">
         <tr>
             <th>No</th>
-            <th>NIP/NIK</th>
-            <th>Nama</th>
-            <th>Jkel</th>
-            <th>Tanggal Lahir</th>
-            <th>Jabatan</th>
+            <th>Prestasi</th>
+            <th>Kegiatan</th>
+            <th>Nama Siswa</th>
+            <th>Keterangan</th>
         </tr>
         @php
         $no =1;
@@ -46,12 +46,10 @@
         @foreach ($data as $key => $item)
         <tr>
             <td>{{$key + 1}}</td>
-
-            <td>{{$item->nip}}</td>
-            <td>{{$item->nama}}</td>
-            <td>{{$item->jkel}}</td>
-            <td>{{$item->tgl_lahir}}</td>
-            <td>{{$item->jabatan}}</td>
+            <td>{{$item->prestasi}}</td>
+            <td>{{$item->rencana == null ? '' : $item->rencana->nama}}</td>
+            <td>{{$item->rencana == null ? '' : $item->rencana->siswa->nama}}</td>
+            <td>{{$item->keterangan}}</td>
         </tr>
         @endforeach
     </table>
@@ -60,8 +58,8 @@
         <tr>
             <td width="60%"></td>
             <td></td>
-            <td><br />Pelaihari, {{\Carbon\Carbon::now()->format('d M Y')}}<br />
-                Kepala Sekolah<br /><br /><br /><br />
+            <td><br />Barabai, {{\Carbon\Carbon::now()->translatedFormat('d F Y')}}<br />
+                Kepala Sekolah MAN 3 HST<br /><br /><br /><br />
 
                 <u>-</u><br />
                 NIP.xxxxxxxxx

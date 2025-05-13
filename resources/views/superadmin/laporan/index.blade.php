@@ -18,12 +18,10 @@
 
                     <select class="form-control" name="jenis" required>
                         <option value="">-jenis laporan-</option>
-                        <option value="1">Data Barang</option>
-                        <option value="2">Data Ruangan</option>
-                        <option value="3">Data Pegawai</option>
-                        <option value="4">Data Inventaris</option>
-                        <option value="5">Data Mutasi</option>
-                        <option value="6">Data Pemeliharaan</option>
+                        <option value="1">Profil</option>
+                        <option value="2">Rencana Kegiatan</option>
+                        <option value="3">Prestasi</option>
+                        <option value="4">Monitoring</option>
                     </select>
                     <br />
                     <button type="submit" class="btn btn-flat btn-sm btn-primary"><i class="fa fa-print"></i>

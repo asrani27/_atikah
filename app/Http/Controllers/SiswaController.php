@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Kelas;
 use App\Models\Siswa;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
@@ -16,7 +17,8 @@ class SiswaController extends Controller
     }
     public function add()
     {
-        return view('superadmin.siswa.create');
+        $kelas = Kelas::get();
+        return view('superadmin.siswa.create', compact('kelas'));
     }
     public function store(Request $req)
     {
@@ -28,7 +30,8 @@ class SiswaController extends Controller
     public function edit($id)
     {
         $data = Siswa::find($id);
-        return view('superadmin.siswa.edit', compact('data'));
+        $kelas = Kelas::get();
+        return view('superadmin.siswa.edit', compact('data', 'kelas'));
     }
 
     public function update(Request $req, $id)

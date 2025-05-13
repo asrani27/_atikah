@@ -8,16 +8,26 @@
                 <h3 class="card-title">Edit Data</h3>
 
             </div>
-            <form method="POST" action="/superadmin/pegawai/edit/{{$data->id}}">
+            <form method="POST" action="/superadmin/siswa/edit/{{$data->id}}">
                 @csrf
                 <div class="card-body">
                     <div class="form-group">
-                        <label for="exampleInputEmail1">NIP/NIK pegawai</label>
-                        <input type="text" name="nip" class="form-control" value="{{$data->nip}}" required>
+                        <label for="exampleInputEmail1">NIS siswa</label>
+                        <input type="text" name="nis" value="{{$data->nis}}" class="form-control" required>
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Nama pegawai</label>
-                        <input type="text" name="nama" class="form-control" value="{{$data->nama}}" required>
+                        <label for="exampleInputEmail1">Nama siswa</label>
+                        <input type="text" name="nama" value="{{$data->nama}}" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Tempat Lahir</label>
+                        <input type="text" name="tempat_lahir" value="{{$data->tempat_lahir}}" class="form-control"
+                            required>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">tanggal lahir</label>
+                        <input type="date" name="tanggal_lahir" value="{{$data->tanggal_lahir}}" class="form-control"
+                            required>
                     </div>
                     <div class="form-group">
                         <label for="exampleInputEmail1">Jenis Kelamin</label>
@@ -27,12 +37,40 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Tanggal Lahir</label>
-                        <input type="date" name="tgl_lahir" class="form-control" value="{{$data->tgl_lahir}}" required>
+                        <label for="exampleInputEmail1">Agama</label>
+                        <select class="form-control" name="agama">
+                            <option value="ISLAM" {{$data->jkel == 'ISLAM' ? 'selected':''}}>ISLAM</option>
+                            <option value="KRISTEN" {{$data->jkel == 'KRISTEN' ? 'selected':''}}>KRISTEN</option>
+                            <option value="KATOLIK" {{$data->jkel == 'KATOLIK' ? 'selected':''}}>KATOLIK</option>
+                            <option value="HINDU" {{$data->jkel == 'HINDU' ? 'selected':''}}>HINDU</option>
+                            <option value="BUDDHA" {{$data->jkel == 'BUDDHA' ? 'selected':''}}>BUDDHA</option>
+                        </select>
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Jabatan</label>
-                        <input type="text" name="jabatan" class="form-control" value="{{$data->jabatan}}" required>
+                        <label for="exampleInputEmail1">Nama Ayah</label>
+                        <input type="text" name="ayah" value="{{$data->ayah}}" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Nama Ibu</label>
+                        <input type="text" name="ibu" value="{{$data->ibu}}" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Telp</label>
+                        <input type="text" name="telp" value="{{$data->telp}}" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Alamat</label>
+                        <input type="text" name="alamat" value="{{$data->alamat}}" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Kelas</label>
+                        <select class="form-control" name="kelas_id">
+                            <option value="">-</option>
+                            @foreach ($kelas as $item)
+                            <option value="{{$item->id}}" {{$data->kelas_id == $item->id ?
+                                'selected':''}}>{{$item->nama}}</option>
+                            @endforeach
+                        </select>
                     </div>
 
                 </div>
@@ -40,7 +78,7 @@
 
                 <div class="card-footer">
                     <button type="submit" class="btn btn-primary">Submit</button>
-                    <a href="/superadmin/pegawai" class="btn btn-danger">Kembali</a>
+                    <a href="/superadmin/siswa" class="btn btn-danger">Kembali</a>
                 </div>
             </form>
             <!-- /.card-body -->

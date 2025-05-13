@@ -8,42 +8,34 @@
                 <h3 class="card-title">Edit Data</h3>
 
             </div>
-            <form method="POST" action="/superadmin/pemeliharaan/edit/{{$data->id}}">
+            <form method="POST" action="/superadmin/prestasi/edit/{{$data->id}}">
                 @csrf
                 <div class="card-body">
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Tanggal</label>
-                        <input type="date" name="tanggal" value="{{$data->tanggal}}" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleInputEmail1">Nomor Mutasi</label>
-                        <input type="text" name="nomor" class="form-control" value="{{$data->nomor}}" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleInputEmail1">Data Barang</label>
-                        <select class="form-control" name="barang_id">
-                            @foreach (barang() as $item)
-                            <option value="{{$item->id}}" {{$data->barang_id == $item->id ?
-                                'selected':''}}>{{$item->kode}} - {{$item->nama}}
+                        <label for="exampleInputEmail1">Kegiatan</label>
+                        <select class="form-control" name="rencana_id">
+                            @foreach ($rencana as $item)
+                            <option value="{{$item->id}}" {{$data->rencana_id}}>{{$item->nama}}
                             </option>
                             @endforeach
                         </select>
                     </div>
 
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Jenis Pemeliharaan</label>
-                        <input type="text" name="jenis" class="form-control" value="{{$data->jenis}}" required>
+                        <label for="exampleInputEmail1">prestasi</label>
+                        <input type="text" name="prestasi" value="{{$data->prestasi}}" class="form-control" required>
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputEmail1">kondisi</label>
-                        <input type="text" name="kondisi" class="form-control" value="{{$data->kondisi}}" required>
+                        <label for="exampleInputEmail1">keterangan</label>
+                        <input type="text" name="keterangan" value="{{$data->keterangan}}" class="form-control"
+                            required>
                     </div>
                 </div>
                 <!-- /.card-body -->
 
                 <div class="card-footer">
                     <button type="submit" class="btn btn-primary">Submit</button>
-                    <a href="/superadmin/pemeliharaan" class="btn btn-danger">Kembali</a>
+                    <a href="/superadmin/prestasi" class="btn btn-danger">Kembali</a>
                 </div>
             </form>
             <!-- /.card-body -->

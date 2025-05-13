@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Klien;
 use App\Models\Barang;
 use App\Models\Mutasi;
+use App\Models\Profil;
 use App\Models\Dokumen;
 use App\Models\Pegawai;
 use App\Models\Ruangan;
@@ -15,6 +16,8 @@ use App\Models\Distribusi;
 use App\Models\Inventaris;
 use App\Models\Verifikasi;
 use App\Models\Pemeliharaan;
+use App\Models\Prestasi;
+use App\Models\Rencana;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade\Pdf;
 
@@ -44,38 +47,26 @@ class LaporanController extends Controller
     {
         $jenis = request()->get('jenis');
         if ($jenis == '1') {
-            $data = Barang::get();
-            $pdf = Pdf::loadView('superadmin.laporan.pdf_barang', compact('data'))->setPaper('a4', 'landscape');;
+            $data = Profil::get();
+            $pdf = Pdf::loadView('superadmin.laporan.pdf_profil', compact('data'))->setPaper('a4', 'landscape');;
             return $pdf->stream();
         }
 
         if ($jenis == '2') {
-            $data = Ruangan::get();
-            $pdf = Pdf::loadView('superadmin.laporan.pdf_ruangan', compact('data'))->setPaper('a4', 'landscape');;
+            $data = Rencana::get();
+            $pdf = Pdf::loadView('superadmin.laporan.pdf_rencana', compact('data'))->setPaper('a4', 'landscape');;
             return $pdf->stream();
         }
 
         if ($jenis == '3') {
-            $data = Pegawai::get();
-            $pdf = Pdf::loadView('superadmin.laporan.pdf_pegawai', compact('data'))->setPaper('a4', 'landscape');;
+            $data = Prestasi::get();
+            $pdf = Pdf::loadView('superadmin.laporan.pdf_prestasi', compact('data'))->setPaper('a4', 'landscape');;
             return $pdf->stream();
         }
 
         if ($jenis == '4') {
-            $data = Inventaris::get();
-            $pdf = Pdf::loadView('superadmin.laporan.pdf_inventaris', compact('data'))->setPaper('a4', 'landscape');;
-            return $pdf->stream();
-        }
-
-        if ($jenis == '5') {
-            $data = Mutasi::get();
-            $pdf = Pdf::loadView('superadmin.laporan.pdf_mutasi', compact('data'))->setPaper('a4', 'landscape');;
-            return $pdf->stream();
-        }
-
-        if ($jenis == '6') {
-            $data = Pemeliharaan::get();
-            $pdf = Pdf::loadView('superadmin.laporan.pdf_pemeliharaan', compact('data'))->setPaper('a4', 'landscape');;
+            $data = Prestasi::get();
+            $pdf = Pdf::loadView('superadmin.laporan.pdf_monitoring', compact('data'))->setPaper('a4', 'landscape');;
             return $pdf->stream();
         }
     }

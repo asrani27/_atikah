@@ -8,47 +8,58 @@
                 <h3 class="card-title">Edit Data</h3>
 
             </div>
-            <form method="POST" action="/superadmin/inventaris/edit/{{$data->id}}">
+            <form method="POST" action="/superadmin/rencana/edit/{{$data->id}}">
                 @csrf
                 <div class="card-body">
+
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Tanggal Masuk</label>
-                        <input type="date" name="tanggal_masuk" value="{{$data->tanggal_masuk}}" class="form-control"
+                        <label for="exampleInputEmail1">Tanggal Kegiatan</label>
+                        <input type="date" name="tanggal" value="{{$data->tanggal}}" class="form-control" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Nama Kegiatan</label>
+                        <input type="text" name="nama" class="form-control" value="{{$data->nama}}" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Tingkat</label>
+                        <input type="text" name="tingkat" class="form-control" value="{{$data->tingkat}}" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Siswa</label>
+                        <select class="form-control" name="siswa_id">
+
+                            @foreach ($siswa as $item)
+                            <option value="{{$item->id}}" {{$data->siswa_id = $item->id ? 'selected':''}}>{{$item->nis}}
+                                - {{$item->nama}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Organisasi</label>
+                        <select class="form-control" name="organisasi_id">
+
+                            @foreach ($organisasi as $item)
+                            <option value="{{$item->id}}" {{$data->organisasi_id = $item->id ?
+                                'selected':''}}>{{$item->nama}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Penyelenggara</label>
+                        <input type="text" name="penyelenggara" class="form-control" value="{{$data->penyelenggara}}"
                             required>
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Nomor inventaris</label>
-                        <input type="text" name="nomor" class="form-control" value="{{$data->nomor}}" required>
+                        <label for="exampleInputEmail1">biaya</label>
+                        <input type="text" name="biaya" class="form-control" value="{{$data->biaya}}"
+                            onkeypress="return hanyaAngka(event)" required>
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Kode Barang</label>
-                        <select class="form-control" name="barang_id">
-                            @foreach (barang() as $item)
-                            <option value="{{$item->id}}" {{$data->barang_id == $item->id ?
-                                'selected':''}}>{{$item->kode}} - {{$item->nama}}
-                            </option>
-                            @endforeach
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleInputEmail1">Ruangan</label>
-                        <select class="form-control" name="ruangan_id">
-                            @foreach (ruangan() as $item)
-                            <option value="{{$item->id}}" {{$data->ruangan_id == $item->id ?
-                                'selected':''}}>{{$item->kode}} - {{$item->nama}}
-                            </option>
-                            @endforeach
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleInputEmail1">Pegawai</label>
-                        <select class="form-control" name="pegawai_id">
-                            @foreach (pegawai() as $item)
-                            <option value="{{$item->id}}" {{$data->pegawai_id == $item->id ?
-                                'selected':''}}>{{$item->kode}} - {{$item->nama}}
-                            </option>
-                            @endforeach
-                        </select>
+                        <label for="exampleInputEmail1">target</label>
+                        <input type="text" name="target" class="form-control" value="{{$data->target}}" required>
                     </div>
                     <div class="form-group">
                         <label for="exampleInputEmail1">Keterangan</label>
@@ -60,7 +71,7 @@
 
                 <div class="card-footer">
                     <button type="submit" class="btn btn-primary">Submit</button>
-                    <a href="/superadmin/inventaris" class="btn btn-danger">Kembali</a>
+                    <a href="/superadmin/rencana" class="btn btn-danger">Kembali</a>
                 </div>
             </form>
             <!-- /.card-body -->
