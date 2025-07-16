@@ -147,6 +147,15 @@
                             </a>
                         </li>
                         <li class="nav-item">
+                            <a href="/superadmin/monitoring"
+                                class="nav-link {{request()->is('superadmin/monitoring*') ? 'active2':''}}">
+                                <i class="nav-icon fas fa-circle"></i>
+                                <p>
+                                    Monitoring
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a href="/superadmin/laporan"
                                 class="nav-link {{request()->is('superadmin/laporan*') ? 'active2':''}}">
                                 <i class="nav-icon fas fa-circle"></i>

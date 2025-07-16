@@ -41,6 +41,7 @@ use App\Http\Controllers\AdminRevisiController;
 use App\Http\Controllers\AdminDeviasiController;
 use App\Http\Controllers\PemeliharaanController;
 use App\Http\Controllers\AdminPenyerapanController;
+use App\Http\Controllers\MonitoringController;
 
 Route::get('/', [LoginController::class, 'welcome']);
 Route::get('/login', [LoginController::class, 'index'])->name('login');
@@ -99,6 +100,8 @@ Route::middleware(['auth', 'superadmin'])->group(function () {
     Route::get('/superadmin/prestasi/edit/{id}', [PrestasiController::class, 'edit']);
     Route::post('/superadmin/prestasi/edit/{id}', [PrestasiController::class, 'update']);
     Route::get('/superadmin/prestasi/delete/{id}', [PrestasiController::class, 'delete']);
+
+    Route::get('/superadmin/monitoring', [MonitoringController::class, 'index']);
 
     Route::get('/laporan/pilih', [LaporanController::class, 'pilih']);
     Route::get('/laporan/klien/print', [LaporanController::class, 'pdfklien']);
